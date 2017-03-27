@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="coin.css">
+</head>
+
+<body>
+	<div class="rotateCoin">
+		<span class="icon1"></span>
+		<span class="icon2"></span>
+	</div>
+	<button id="triggerBtn">spin</button>
+	<script>
+	var spin = false;
+		document.getElementById('triggerBtn').addEventListener('click', function(e){
+			var el = document.getElementsByClassName('rotateCoin')[0];
+			if(!spin) {
+				spin = true;
+				el.classList.remove("rotateEgg");
+				el.classList.remove("rotateChicken");
+			
+				if(Math.random()>0.5) {
+					setTimeout(function(){el.classList.add("rotateChicken");},0);
+				} else {
+					setTimeout(function(){el.classList.add("rotateEgg");},0);
+				}
+				setTimeout(function(){spin=false;}, 5000);
+			}
+			
+		});
+	</script>
+</body>
+
+</html>

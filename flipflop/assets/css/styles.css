@@ -1,0 +1,141 @@
+.Board {
+    display: flex;
+    flex-direction: row;
+    width: 80vh;
+    height: 80vh;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.Cell {
+    flex-basis: 25%;
+    height: 25%;
+    transform: scale(0.9);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.backFace,
+.frontFace {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transition: 0.5s;
+}
+
+.Active>.frontFace {
+    transform: rotateY(180deg);
+}
+
+.frontFace {
+    background-color: green;
+    transform: rotateY(360deg);
+}
+
+.Active>.backFace {
+    transform: rotateY(360deg);
+}
+
+.backFace {
+    background-color: red;
+    transform: rotateY(180deg);
+    text-align: center;
+}
+
+.backFace>.glyphicon {
+    margin-top: 20%;
+    line-height: calc(25vh * 0.5);
+    font-size: calc(25vh * 0.5);
+}
+
+.Drop {
+    transform: scale(0);
+    transition-duration: 0.5s;
+}
+
+.messageBox {
+    opacity: 0;
+    position: absolute;
+    top: -200px;
+    width: 80vh;
+    background: #fff;
+    border-radius: 5px;
+    transition: all 0.5s ease-in;
+    padding: 20px;
+}
+
+.messageBox.display {
+    opacity: 1;
+    top: 40vh;
+    transform: translateY(-50%);
+}
+
+.seconds {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    animation: swimSeconds 0.9s;
+    animation-fill-mode: forwards;
+    color: #ff0;
+    -webkit-text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    -moz-text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+}
+
+.clicks {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    animation: swimClicks 1.9s;
+    animation-fill-mode: forwards;
+    color: #00F;
+    -webkit-text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    -moz-text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+}
+
+@keyframes swimSeconds {
+    0% {
+        top: 0vh;
+        opacity: 0;
+    }
+    30% {
+        top: 40vh;
+        opacity: 1;
+    }
+    70% {
+        top: 40vh;
+        opacity: 1;
+    }
+    100% {
+        top: 80vh;
+        opacity: 0;
+    }
+}
+
+
+@keyframes swimClicks {
+    0% {
+        top: 80vh;
+        opacity: 0;
+    }
+    30% {
+        top: 40vh;
+        opacity: 1;
+    }
+    70% {
+        top: 40vh;
+        opacity: 1;
+    }
+    100% {
+        top: 0vh;
+        opacity: 0;
+    }
+}
